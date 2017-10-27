@@ -16,7 +16,6 @@ var ccurlProvider = function(ccurlPath) {
   }
 
   var fullPath = ccurlPath + '/libccurl';
-  console.log ("fullPath: " + fullPath)
 
   try {
     // Define libccurl to be used for finding the nonce

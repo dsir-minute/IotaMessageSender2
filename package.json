@@ -6,7 +6,7 @@
   "license": "GPL-3.0",
   "main": "js/main.js",
   "scripts": {
-    "postinstall": "electron-builder install-app-deps && node install-deps.js && bower install && cd js && bower install",
+    "postinstall": "electron-builder install-app-deps && node install-deps.js && cd js && bower install",
     "start": "export NODE_ENV=development || set NODE_ENV=development && electron js/main.js",
     "precompile": "rimraf out/* && node install-deps.js",
     "compile": "export CSC_IDENTITY_AUTO_DISCOVERY=false && electron-builder --win --mac --linux --x64 --ia32",
@@ -22,13 +22,15 @@
     "publish:win": "electron-builder --win --x64 --ia32 --publish always"
   },
   "author": "Alessandro Rota",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alero3/IotaMessageSender"
+  },
   "dependencies": {
     "curl.lib.js": "^1.0.22",
     "ffi": "^2.2.0",
     "fs-extra": "^1.0.0",
     "glob": "^7.1.2",
-    "i18next": "^8.4.2",
-    "i18next-sync-fs-backend": "^0.1.0",
     "pidusage": "^1.1.5"
   },
   "devDependencies": {

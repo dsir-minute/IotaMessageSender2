@@ -15,7 +15,7 @@ var settings = {};
 
 function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 1280, height: 800})
+    win = new BrowserWindow({width: 800, height: 600})
 
     // and load the send.html of the app.
     win.loadURL(url.format({
@@ -50,7 +50,7 @@ function createWindow () {
     loadSettings();
 
     // Open the DevTools.
-    win.webContents.openDevTools()
+    //win.webContents.openDevTools()
 
     // Emitted when the window is closed.
     win.on('closed', () => {

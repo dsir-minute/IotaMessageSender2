@@ -37,7 +37,16 @@ var UI = (function(UI, $, undefined) {
 
         var interruptAttachingToTangle = false;
 
-        connection.ccurlPath = "../ccurl/mac"
+        //Create path to libccurl.dylib
+        var loc = window.location.pathname;
+        var dir = loc.substring(0, loc.lastIndexOf('/'));
+        dir = dir.substring(0, dir.lastIndexOf('/'));
+        var relpath = "/ccurl/mac/"
+        dir = dir.concat(relpath)
+        console.log ("Path to libccurl.dylib: " + dir)
+        connection.ccurlPath = dir
+
+
 
 
 
