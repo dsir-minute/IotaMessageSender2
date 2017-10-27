@@ -10,9 +10,9 @@ It  has to be used in pair with IOTA Message Receiver
 
 # Differences with respect to IOTA Leaderboard Example
 
-* Proof Of Work is perfomed locally. Usually full nodes forbid POW on their node, so light nodes connected to them can't send messages. In this application light nodes are allowed to send messaging by perfoming POW on their node.
+* Proof Of Work is perfomed locally. Usually full nodes forbid POW on their node, so light nodes connected to them can't send messages. In this application light nodes are allowed to send messages by perfoming POW on their node.
 * Application runs in Electron, the same framework used by the official IOTA Wallet 
-* 0 value transaction are allowed
+* 0 value transactions are allowed. This is useful if you just want to send a message with no money. It also avoids to change sender address for every message because 0 value transactions are not signed
 
 
 ## Prerequisites
@@ -57,33 +57,25 @@ If you wish to compile the app, install the following also:
   git clone https://github.com/alero3/IotaMessageSender
   ```
 
-2. Go to the `wallet` directory:
+2. Go to the `IotaMessageSender` directory:
 
   ```
-  cd wallet
+  cd IotaMessageSender
   ```
 
-3. Clone iri: 
-
-  ```
-  git clone https://github.com/iotaledger/iri
-  ```
-
-  Note: make sure compiled iri.jar is in the `iri` folder.
-  
-4. Install components
+3. Install components
 
   ```
   npm install
   ```
 
-5. Run the app:
+4. Run the app:
 
   ```
   npm start
   ```
 
-6. If you wish to compile the app: 
+5. If you wish to compile the app: 
 
   ```
   npm run compile
@@ -98,4 +90,8 @@ If you wish to compile the app, install the following also:
   ```
 
   Compiled binaries are found in the `out` directory.
+  
+  # Notes 
+  
+  Default full node used by this application is 88.198.230.98. You can change it in init.js, line 11-12.
 
