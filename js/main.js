@@ -1,4 +1,7 @@
+// I am  leaderboard-example/js/main.js from 
+// modded by raxy on 20jan18
 //MAIN PROCESS
+// migrated updateAddressHTML() and updateAddressHTML() from .html files
 
 const {app, BrowserWindow} = require('electron')
 const electron = require("electron");
@@ -8,10 +11,24 @@ const fs = require("fs-extra");
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let win
+let win = null;
 
 var appDataDirectory = "";
 var settings = {};
+
+//
+// Updates the address on the sidebar to the latest one
+function updateAddressHTML(address) {
+    if (!address)
+        return
+    var html = '<div class="panel panel-primary"><div class="panel-heading">Address</div><div class="panel-body">' + address + '</div></div>'
+    $("#allAddresses").html( html);
+}
+//
+//  Updates the balance shown on the page
+function updateBalanceHTML(balance) {
+    $("#iota__balance").html(balance);
+}
 
 function createWindow () {
     // Create the browser window.
@@ -32,7 +49,7 @@ function createWindow () {
         var resourcesDirectory = path.dirname(appDirectory);
 
         var ccurlPath;
-
+/*
         if (process.platform == "win32") {
             ccurlPath = path.join(resourcesDirectory, "ccurl", "win" + (is64BitOS ? "64" : "32"));
         } else if (process.platform == "darwin") {
@@ -40,14 +57,15 @@ function createWindow () {
         } else {
             ccurlPath = path.join(resourcesDirectory, "ccurl", "lin" + (is64BitOS ? "64" : "32"));
         }
-
+*/
+      ccurlPath = path.join(resourcesDirectory, "ccurl", "lin64");
     }
     catch (err) {
         console.log("Error:");
         console.log(err);
     }
 
-    loadSettings();
+//    loadSettings();
 
     // Open the DevTools.
     //win.webContents.openDevTools()
@@ -64,7 +82,7 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', createWindow);
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -73,7 +91,7 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit()
     }
-})
+});
 
 app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
@@ -81,13 +99,12 @@ app.on('activate', () => {
     if (win === null) {
         createWindow()
     }
-})
+});
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
-var loadSettings = function() {
-
-
+//var loadSettings = function() {
+function loadSettings() {
 
     try {
 
