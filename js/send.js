@@ -109,19 +109,21 @@ $(document).ready(function() {
     //
     // Set seed and Tangle wallet server
     $("#seedSubmit").on("click", function() {
-        loadSettings();
-        // We modify the entered seed to fit the criteria of 81 chars, all uppercase and only latin letters
-        setSeed($("#userSeed").val());
-        // Then we remove the input
-        console.log("walletSrvHost:"+$("#walletSrvHost").val() );
-        console.log("walletSrvPort:"+$("#walletSrvPort").val() );
-         connection.host += $("#walletSrvHost").val();
-         connection.port += $("#walletSrvPort").val();
-         connectToTangle();
-        // We fetch the latest transactions every 90 seconds
-        getAccountInfo();
-        setInterval(getAccountInfo, 90000);
-        $("#enterSeed").html('<div class="alert alert-success" role="alert">Tks for your connection params. You can generate an address now.</div>');
+      loadSettings();
+      // We modify the entered seed to fit the criteria of 81 chars, all uppercase and only latin letters
+      setSeed($("#userSeed").val());
+      // Then we remove the input
+      //$("#enterSeed").html('<div class="alert alert-success" role="alert">Tks for your connection params. You can generate an address now.</div>');
+      $(this).hide();
+      console.log("walletSrvHost:"+$("#walletSrvHost").val() );
+      console.log("walletSrvPort:"+$("#walletSrvPort").val() );
+      connection.host += $("#walletSrvHost").val();
+      connection.port += $("#walletSrvPort").val();
+      connectToTangle();
+      // We fetch the latest transactions every 90 seconds
+      getAccountInfo();
+      setInterval(getAccountInfo, 90000);
+      alert("Tks for your connection params. You can generate an address now or send transfers.");
     });
     //
     // Generate a new address

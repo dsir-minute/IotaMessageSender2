@@ -5,11 +5,11 @@
 .send {
   max-width: 800px;
   width: 100%;
-  margin: 50px auto;
+  margin: 20px auto;
   border-collapse: collapse;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   position: relative;
-  top: -180px;
+/*  top: -180px;*/
 }
 
 .send__header {

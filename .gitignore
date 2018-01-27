@@ -30,6 +30,7 @@ lib-cov
 build/Release
 
 # Dependency directories
+js/bower_components
 ccurl
 node_modules
 jspm_packages
