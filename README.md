@@ -1,8 +1,10 @@
-![Website](./images/sender.png)
+![Website](./images/connect.png)
+![Website](./images/connected.png)
+![Website](./images/ready.png)
 
 ---
 
-# IOTA Message Sender with local POW
+# IOTA Message Sender with local POW, modded by raxy
 
 Proof of concept application using IOTA Tangle to send messages and tokens.
 It's simply the IOTA Leaderboard Example https://github.com/domschiener/leaderboard-example with some modifications.
@@ -14,6 +16,12 @@ It  has to be used in pair with IOTA Message Receiver
 * Application runs in Electron, the same framework used by the official IOTA Wallet 
 * 0 value transactions are allowed. This is useful if you just want to send a message with no money. It also avoids to change sender address for every message because 0 value transactions are not signed
 
+# Additional mods by raxy
+
+* show number of transfers
+* can enter wallet server hostname and port
+* wallet server params remain visible
+* GUI cosmetics
 
 ## Prerequisites
 
@@ -93,5 +101,6 @@ If you wish to compile the app, install the following also:
   
   # Notes 
   
-  Default full node used by this application is 88.198.230.98. You can change it in init.js, line 11-12.
+  No Default values for seed, hostname or port; you must provide them before connecting to the Tangle
+  Beware of electron not being compatible with some nodejs v9.x at install time
 
