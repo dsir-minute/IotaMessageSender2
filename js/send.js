@@ -1,5 +1,5 @@
 /* I am  IotaMessageSender/js/send.js from https://github.com/alero3/IotaMessageSender.git
-   modded by raxy on 20jan18
+   modded by raxy on 03fev18
    wallet server parametrable, changed labels, add #transfers : updated by getAccountInfo()
 */
 var seed;
@@ -153,32 +153,28 @@ $(document).ready(function() {
         }
         */
         console.log("balance OK");
-        var name = $("#name").val();
+        //var name = $("#name").val();
         var value = parseInt($("#value").val());
         var address = $("#address").val();
         var message = $("#message").val();
         console.log ("Value =", value);
-        if (!name || value == null || value == NaN || value < 0 || !message)
+        if( value == null || value == NaN || value < 0 || !message)
             return
-        
-        console.log("name, value, message OK");
+        var iotaMsg = JSON.stringify( { "name":"", "message": message}); // mandatory object!
+        console.log("value, message OK");
         if (value > balance) {
             var html = '<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Value too high!</strong> You have specified a too high value.</div>'
             $("#send__success").html(html);
             return
         }
         console.log("value <= balance: OK");
-        // the message which we will send with the transaction
-        var messageToSend = {
-            'name': name,
-            'message': message
-        }
-        // Convert the user message into trytes
+        // the iotaMsg (stringified json) which we will send with the transaction
+        // Convert the user iotaMsg into trytes
         // In case the user supplied non-ASCII characters we throw an error
         try {
-            console.log("Sending Message: ", messageToSend);
-            var messageTrytes = iota.utils.toTrytes(JSON.stringify(messageToSend));
-            console.log("Converted Message into trytes: ", messageTrytes);
+            console.log("Sending Message: ", message);
+            var messageTrytes = iota.utils.toTrytes( message);
+            console.log("Message converted into trytes: ", messageTrytes);
             // We display the loading screen
             $("#send__waiting").css("display", "block");
             $("#submit").toggleClass("disabled");
@@ -218,7 +214,7 @@ function connectToTangle() {
             } else {
                console.log("...");
             }
-            showLightWalletErrorMessage();m
+            showLightWalletErrorMessage();
             return;
          } else {
             connection.ccurlProvider = ccurl.ccurlProvider(connection.ccurlPath);

@@ -1,7 +1,9 @@
 
 /**
-  ** Send Section
+  ** I am send.css of iotaMessageSender2 by raxy
+  ** last upd 03fev18
   **/
+  
 .send {
   max-width: 800px;
   width: 100%;
@@ -9,7 +11,7 @@
   border-collapse: collapse;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   position: relative;
-/*  top: -180px;*/
+  top: 70px;
 }
 
 .send__header {
@@ -20,7 +22,7 @@
   font-size: 38px;
   font-weight: 100;
   color: #fff;
-  padding: 24px;
+  padding: 0px 24px 0px 0px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   vertical-align:middle;
   text-align: center;
@@ -36,7 +38,7 @@
   font-size: 32px;
   font-weight: 100;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  margin: 20px 0 40px;
+  margin: 0;
   vertical-align:middle;
   text-align: center;
 }
@@ -48,7 +50,7 @@
 
 .send__button {
   text-align: center;
-  margin: 20px 0;
+  margin: 0;
 }
 
 #send__waiting {

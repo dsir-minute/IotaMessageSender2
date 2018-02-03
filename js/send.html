@@ -41,21 +41,21 @@
             </nav>
          </header>
          <section class="send__section">
-            <div class="send">
-               <div class="send__header">
-                  <p class="send__header-title">Transfer iotas &amp; message</p>
-               </div>
-               <div class="send__body">
-                  <div class="row">
                      <div class="col-xs-6 send__body-title">
                         <p class="send__body-balance"><img class="send__logo" src="../images/logo-black.png" />Coin Balance:<span class="label label-primary" id="iota__balance">??</span></p>
                      </div>
                      <div class="col-xs-6 send__body-title">
                         <p class="send__body-balance">#transfers:<span class="label label-primary" id="nbTransf">??</span></p>
                      </div>
-                     <div class="col-xs-6">
-                        <div class="form-group">
-                           <input type="text" maxlength="16" class="form-control" id="name" placeholder="Sender's Name">
+            <div class="send">
+               <div class="send__header">
+                  <p class="send__header-title">Transfer iotas &amp; message</p>
+               </div>
+               <div class="send__body">
+                  <div class="row">
+                     <div class="col-xs-12">
+                        <div class = "form-group">
+                           <input type="text" class="form-control" id="address" placeholder="IOTA-Address of recipient">
                         </div>
                      </div>
                      <div class="col-xs-6">
@@ -63,19 +63,19 @@
                            <input type="number" class="form-control" id="value" placeholder="Amount of Iotas">
                         </div>
                      </div>
-                     <div class="col-xs-12">
-                        <div class = "form-group">
-                           <input type="text" class="form-control" id="address" placeholder="IOTA-Address of recipient">
+                     <!--div class="col-xs-6">
+                        <div class="form-group">
+                           <input type="text" maxlength="16" class="form-control" id="name" placeholder="Sender's Name">&nbsp;
                         </div>
-                     </div>
+                     </div-->
                      <div class="col-xs-12">
                         <div class = "form-group">
                            <textarea id="message" class="form-control" rows="3" placeholder="Message to send"></textarea>
                         </div>
                      </div>
-                     <div class="send__button">
-                        <button class="btn btn-success btn-lg" id="submit">Go!</button>
-                     </div>
+                  </div>
+                  <div class="send__button">
+                     <button class="btn btn-success btn-lg" id="submit">Go!</button>
                   </div>
                   <!-- Message to be displayed once successfully sent -->
                   <div id="send__success"></div>
