@@ -1,7 +1,7 @@
 
 /**
   ** I am send.css of iotaMessageSender2 by raxy
-  ** last upd 03fev18
+  ** 04mar18 new send__header background-color
   **/
   
 .send {
@@ -17,12 +17,11 @@
 .send__header {
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-  background-color: #000;
+  background-color: #7f1292;
   border-bottom: 4px solid #9ea7af;
   font-size: 38px;
   font-weight: 100;
   color: #fff;
-  padding: 0px 24px 0px 0px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   vertical-align:middle;
   text-align: center;

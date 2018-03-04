@@ -2,12 +2,15 @@
 // modded by raxy on 20jan18
 //MAIN PROCESS
 // migrated updateAddressHTML() and updateAddressHTML() from .html files
+// 04mar use WWID & WHEI
 
 const {app, BrowserWindow} = require('electron')
 const electron = require("electron");
 const path = require('path')
 const url = require('url')
 const fs = require("fs-extra");
+const WWID=1000;
+const WHEI=660;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -32,7 +35,7 @@ function updateBalanceHTML(balance) {
 
 function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 800, height: 600})
+    win = new BrowserWindow({width: WWID, height: WHEI})
 
     // and load the send.html of the app.
     win.loadURL(url.format({
@@ -122,7 +125,7 @@ function loadSettings() {
     } catch (err) {
         console.log("Error reading settings:");
         console.log(err);
-        settings = {bounds: {width: 520, height: 780}, checkForUpdates: 1, lastUpdateCheck: 0, showStatusBar: 0, isFirstRun: 1, port: (isTestNet ? 14900 : 14265), udpReceiverPort: 14600, tcpReceiverPort: 15600, sendLimit: 0, nodes: [], dbLocation: "", allowShortSeedLogin: 0, keccak: 0, ccurl: 0};
+        settings = {bounds: {width: 600, height: 800}, checkForUpdates: 1, lastUpdateCheck: 0, showStatusBar: 0, isFirstRun: 1, port: (isTestNet ? 14900 : 14265), udpReceiverPort: 14600, tcpReceiverPort: 15600, sendLimit: 0, nodes: [], dbLocation: "", allowShortSeedLogin: 0, keccak: 0, ccurl: 0};
     }
 
     try {
@@ -142,7 +145,7 @@ function loadSettings() {
             }
         }
     } catch (err) {
-        settings.bounds = {width: 520, height: 780};
+        settings.bounds = {width: 600, height: 800};
     }
     console.log ("Settings loaded successfully");
 }
