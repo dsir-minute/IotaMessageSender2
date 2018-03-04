@@ -1,6 +1,7 @@
 /* I am  IotaMessageSender/js/send.js from https://github.com/alero3/IotaMessageSender.git
-   modded by raxy on 03fev18
+   modded by raxy
    wallet server parametrable, changed labels, add #transfers : updated by getAccountInfo()
+   04mar ensure $("#message").val() is a json or fix it
 */
 var seed;
 var balance = 0;
@@ -157,10 +158,18 @@ $(document).ready(function() {
         var value = parseInt($("#value").val());
         var address = $("#address").val();
         var message = $("#message").val();
+        var iotaMsg;
         console.log ("Value =", value);
         if( value == null || value == NaN || value < 0 || !message)
             return
-        var iotaMsg = JSON.stringify( { "name":"", "message": message}); // mandatory object!
+        try {
+            var tmp = JSON.parse(message);
+            iotaMsg = message;
+        }
+        catch (e) {
+            // message probably not json, make it stringified json!
+            iotaMsg = JSON.stringify({ "message": message});
+        }
         console.log("value, message OK");
         if (value > balance) {
             var html = '<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Value too high!</strong> You have specified a too high value.</div>'
@@ -172,8 +181,8 @@ $(document).ready(function() {
         // Convert the user iotaMsg into trytes
         // In case the user supplied non-ASCII characters we throw an error
         try {
-            console.log("Sending Message: ", message);
-            var messageTrytes = iota.utils.toTrytes( message);
+            console.log("Sending Message: ", iotaMsg);
+            var messageTrytes = iota.utils.toTrytes( iotaMsg);
             console.log("Message converted into trytes: ", messageTrytes);
             // We display the loading screen
             $("#send__waiting").css("display", "block");
